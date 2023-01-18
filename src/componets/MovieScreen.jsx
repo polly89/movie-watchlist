@@ -1,6 +1,8 @@
-function MovieScreen({movieList, page, setPage, list}){
+import MovieCard from "./MovieCard";
+
+function MovieScreen({movieList, page, setPage, list, addMovie}){
     const movieDisplay = movieList.map((movie, index) => {
-        return <h2>{movie.original_title}</h2>
+        return <MovieCard movie={movie} addMovie={addMovie} list={list}/>
     })
     return(
         <div className="page">
