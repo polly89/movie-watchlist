@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Header from "./componets/Header";
 import MovieScreen from "./componets/MovieScreen";
 import Watchlist from "./componets/Watchlist";
+import './App.css'
 
 function App() {
   const [movieList, setMovieList] = useState([]);
@@ -28,6 +29,13 @@ function App() {
     setList([...list, movie]);
   };
 
+  const removeMovie = (movie) => {
+    const newState = list.filter((mov) => {
+      return mov !== movie;
+    })
+    setList(newState);
+  }
+
   return (
     <div className="App">
       <Header />
@@ -38,6 +46,7 @@ function App() {
           setPage={setPage}
           list={list}
           addMovie={addMovie}
+          removeMovie={removeMovie}
         />
         <Watchlist list={list} />
       </main>
